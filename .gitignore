@@ -4,3 +4,9 @@ build
 
 # IntelliJ
 .idea
+
+# Angular
+.angular
+
+# Node
+node_modules

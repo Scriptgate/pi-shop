@@ -1,0 +1,17 @@
+plugins {
+    id 'com.github.node-gradle.node'  version '7.1.0'
+}
+
+node {
+    version.set '22.13.0'
+    npmVersion.set '10.9.0'
+    download.set true
+    workDir.set project.layout.buildDirectory.dir('nodejs')
+}
+
+tasks.register('ngServe', NpmTask) {
+    group = 'application'
+    dependsOn npmInstall
+    workingDir = file('src')
+    args = ['run', 'start']
+}
