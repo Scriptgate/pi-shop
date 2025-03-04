@@ -1,4 +1,5 @@
 plugins {
+    id 'base'
     id 'com.github.node-gradle.node'  version '7.1.0'
 }
 
@@ -6,7 +7,23 @@ node {
     version.set '22.13.0'
     npmVersion.set '10.9.0'
     download.set true
-    workDir.set project.layout.buildDirectory.dir('nodejs')
+    workDir.set layout.buildDirectory.dir('nodejs')
+}
+
+def buildClient = tasks.register('buildClient', NpmTask) {
+    group = 'build'
+    args = ['run', 'buildPrd']
+    inputs.dir('src')
+    inputs.files(fileTree(dir: projectDir, includes: ['*.json']))
+    outputs.dir(layout.buildDirectory.dir('dist/pi-shop'))
+    dependsOn npmInstall
+}
+
+tasks.register('buildClientToSpring', Copy) {
+    group = 'build'
+    dependsOn buildClient
+    from buildClient.map { it.outputs.files }
+    into project(':backend').layout.buildDirectory.dir('resources/main/static')
 }
 
 tasks.register('ngServe', NpmTask) {

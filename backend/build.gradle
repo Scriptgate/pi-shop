@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.3'
+}
+
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform(SpringBootPlugin.BOM_COORDINATES)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+def buildClientToSpring = ':frontend:buildClientToSpring'
+
+def bootRepackage = tasks.register('bootRepackage') {
+    group = 'build'
+    dependsOn buildClientToSpring, 'bootJar'
+}
+
+tasks.named('bootJar') {
+    mustRunAfter buildClientToSpring
+}
+tasks.named('resolveMainClassName') {
+    mustRunAfter buildClientToSpring
+}
+tasks.named('bootRun') {
+    dependsOn bootRepackage
+}
+
+

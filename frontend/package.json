@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "buildPrd": "ng build --configuration production --base-href=/pi-shop",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
