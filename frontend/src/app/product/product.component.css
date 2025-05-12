@@ -1,30 +1,33 @@
-.listing {
+.product {
   background: var(--accent-color);
   border-radius: 30px;
   padding-bottom: 30px;
 }
-.listing-heading {
+.product-heading {
   color: var(--primary-color);
   padding: 10px 20px 0 20px;
 }
-.listing-photo {
+.product-image {
   height: 250px;
   width: 100%;
   object-fit: cover;
   border-radius: 30px 30px 0 0;
 }
-.listing-location {
+.product-barcode {
   padding: 10px 20px 20px 20px;
 }
-.listing-location::before {
-  content: url("/assets/location-pin.svg") / "";
+.product-barcode::before {
+  position: relative;
+  top: 7px;
+  padding-right: 5px;
+  content: url("/assets/barcode.svg") / "";
 }
-section.listing a {
+section.product a {
   padding-left: 20px;
   text-decoration: none;
   color: var(--primary-color);
 }
-section.listing a::after {
+section.product a::after {
   content: "\203A";
   margin-left: 5px;
 }

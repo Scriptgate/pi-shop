@@ -1,8 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
-import {HousingService} from '../housing.service';
-import {HousingLocation} from '../housinglocation';
+import {ProductService} from '../product.service';
+import {Product} from '../product';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 @Component({
   selector: 'app-details',
@@ -10,25 +10,24 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
   template: `
     <article>
       <img
-        class="listing-photo"
-        [src]="housingLocation?.photo"
-        alt="Exterior photo of {{ housingLocation?.name }}"
+        class="product-image"
+        [src]="product?.image"
+        alt="Image of {{ product?.name }}"
         crossorigin
       />
-      <section class="listing-description">
-        <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
-        <p class="listing-location">{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
+      <section class="product-description">
+        <h2 class="product-heading">{{ product?.name }}</h2>
+        <p class="product-barcode">{{ product?.barcode }}</p>
       </section>
-      <section class="listing-features">
-        <h2 class="section-heading">About this housing location</h2>
+      <section class="product-features">
+        <h2 class="section-heading">About this product</h2>
         <ul>
-          <li>Units available: {{ housingLocation?.availableUnits }}</li>
-          <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
-          <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
+          <li>Type: {{ product?.type }}</li>
+          <li>price: {{ product?.price }}</li>
         </ul>
       </section>
-      <section class="listing-apply">
-        <h2 class="section-heading">Apply now to live here</h2>
+      <section class="product-apply">
+        <h2 class="section-heading">Apply now to buy this</h2>
         <form [formGroup]="applyForm" (submit)="submitApplication()">
           <label for="first-name">First Name</label>
           <input id="first-name" type="text" formControlName="firstName" />
@@ -45,21 +44,21 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
-  housingService = inject(HousingService);
-  housingLocation: HousingLocation | undefined;
+  productService = inject(ProductService);
+  product: Product | undefined;
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     email: new FormControl(''),
   });
   constructor() {
-    const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
-    this.housingService.getHousingLocationById(housingLocationId).then((housingLocation) => {
-      this.housingLocation = housingLocation;
+    const productId = parseInt(this.route.snapshot.params['id'], 10);
+    this.productService.getProductById(productId).then((product) => {
+      this.product = product;
     });
   }
   submitApplication() {
-    this.housingService.submitApplication(
+    this.productService.submitApplication(
       this.applyForm.value.firstName ?? '',
       this.applyForm.value.lastName ?? '',
       this.applyForm.value.email ?? '',
