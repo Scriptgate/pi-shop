@@ -14,6 +14,7 @@ import {RouterModule} from '@angular/router';
         crossorigin
       />
       <h2 class="product-heading">{{ product.name }}</h2>
+      <h2 class="product-price">€{{ product.price }}</h2>
       <p class="product-barcode">{{ product.barcode }}</p>
       <a [routerLink]="['/details', product.id]">Details</a>
     </section>

@@ -6,6 +6,12 @@
 .product-heading {
   color: var(--primary-color);
   padding: 10px 20px 0 20px;
+  display: inline-block;
+}
+.product-price {
+  color: var(--primary-color);
+  padding: 10px 20px 0 20px;
+  float: right;
 }
 .product-image {
   height: 250px;
