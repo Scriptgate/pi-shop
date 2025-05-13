@@ -23,7 +23,7 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
         <h2 class="section-heading">About this product</h2>
         <ul>
           <li>Type: {{ product?.type }}</li>
-          <li>price: {{ product?.price }}</li>
+          <li>Price: €{{ product?.price }}</li>
         </ul>
       </section>
       <section class="product-apply">
