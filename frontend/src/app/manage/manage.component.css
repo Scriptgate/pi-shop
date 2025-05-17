@@ -1,0 +1,90 @@
+.product-apply .section-heading {
+  font-size: 18pt;
+  margin-bottom: 15px;
+}
+.product-apply label {
+  display: block;
+}
+.product-apply label {
+  color: var(--secondary-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12pt;
+}
+.product-apply input {
+  font-size: 16pt;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 400px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid .3px;
+}
+
+.filter input[type="text"] {
+  border: solid 1px var(--primary-color);
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 30%;
+}
+.primary {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+.secondary {
+  padding: 10px;
+  border: solid 1px var(--secondary-color);
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+section {
+    margin: 20px 0px 20px 0px;
+}
+
+.products table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products tr {
+    border-bottom: 1px solid gray;
+}
+
+.products td {
+    padding: 10px;
+}
+
+.products .text {
+  text-align: left;
+}
+
+.products .number, .products .actions {
+  text-align: right;
+}
+
+.products img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-upload {
+  margin: 20px 0px 20px 0px;
+}
+
+.product-apply .primary {
+  display: block;
+}

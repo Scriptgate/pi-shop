@@ -1,52 +1,73 @@
 package net.scriptgate.pi.shop.controller.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static net.scriptgate.pi.shop.controller.model.ProductBuilder.product;
 
 public class Products {
 
-    private static List<Product> products;
+    private static int idSequence = 0;
+    private static int barcodeSequence = 1000;
+    private static final List<Product> products;
 
     static {
-        products = List.of(
-                product(0, "Frietjes")
-                        .image("/assets/images/fries.png")
+        products = new ArrayList<>(List.of(
+                product(nextId(), "Frietjes")
+                        .image("assets/images/fries.png")
                         .type("FOOD")
-                        .barcode("1001")
+                        .barcode(nextBarcode())
                         .price(5.00)
                         .build(),
-                product(1, "Broodje")
-                        .image("/assets/images/bread.png")
+                product(nextId(), "Broodje")
+                        .image("assets/images/bread.png")
                         .type("FOOD")
-                        .barcode("1002")
+                        .barcode(nextBarcode())
                         .price(3.00)
                         .build(),
-                product(2, "Koffie")
-                        .image("/assets/images/coffee.png")
+                product(nextId(), "Koffie")
+                        .image("assets/images/coffee.png")
                         .type("DRINK")
-                        .barcode("1003")
+                        .barcode(nextBarcode())
                         .price(12.00)
                         .build(),
-                product(3, "Appelsiensap")
-                        .image("/assets/images/juice.png")
+                product(nextId(), "Appelsiensap")
+                        .image("assets/images/juice.png")
                         .type("DRINK")
-                        .barcode("1004")
+                        .barcode(nextBarcode())
                         .price(4.00)
                         .build(),
-                product(4, "Donuts")
-                        .image("/assets/images/donuts.png")
+                product(nextId(), "Donuts")
+                        .image("assets/images/donuts.png")
                         .type("FOOD")
-                        .barcode("1005")
+                        .barcode(nextBarcode())
                         .price(18.00)
                         .build(),
-                product(5, "Koekjes")
-                        .image("/assets/images/cookies.png")
+                product(nextId(), "Koekjes")
+                        .image("assets/images/cookies.png")
                         .type("FOOD")
-                        .barcode("1006")
+                        .barcode(nextBarcode())
                         .price(25.00)
                         .build()
-        );
+        ));
+    }
+
+    public static int nextId() {
+        return ++idSequence;
+    }
+
+    public static String nextBarcode() {
+        return String.valueOf(++barcodeSequence);
+    }
+
+    public static Product create(Product product) {
+
+        System.out.println("Name: "+product.getName()+", Image: "+product.getImage().length()+ ", Type: " + product.getType()+ ", Price: "+product.getPrice());
+
+        product.setId(nextId());
+        product.setBarcode(nextBarcode());
+        products.add(product);
+        return product;
     }
 
     public static List<Product> all() {

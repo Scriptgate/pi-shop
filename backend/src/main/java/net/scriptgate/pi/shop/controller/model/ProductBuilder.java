@@ -1,5 +1,10 @@
 package net.scriptgate.pi.shop.controller.model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
+
 public class ProductBuilder {
 
     private final int id;
@@ -29,10 +34,22 @@ public class ProductBuilder {
         return product;
     }
 
-    public ProductBuilder image(String url) {
-        this.image = url;
+    public ProductBuilder image(String path) {
+        try(InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(path)) {
+            if(input == null) {
+                throw new FileNotFoundException(path);
+            }
+            return image(input.readAllBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ProductBuilder image(byte[] data) {
+        this.image = "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(data);
         return this;
     }
+
     public ProductBuilder type(String type) {
         this.type = type;
         return this;

@@ -11,7 +11,6 @@ import {RouterModule} from '@angular/router';
         class="product-image"
         [src]="product.image"
         alt="Image of {{ product.name }}"
-        crossorigin
       />
       <h2 class="product-heading">{{ product.name }}</h2>
       <h2 class="product-price">€{{ product.price }}</h2>
