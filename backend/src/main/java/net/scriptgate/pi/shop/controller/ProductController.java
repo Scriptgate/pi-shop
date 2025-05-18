@@ -28,12 +28,14 @@ public class ProductController {
             @RequestParam("name") String name,
             @RequestParam("image") MultipartFile image,
             @RequestParam("type") String type,
+            @RequestParam("barcode") String barcode,
             @RequestParam("price") String price
     ) throws IOException {
         return Products.create(
                 ProductBuilder.product(0, name)
                         .image(image.getBytes())
                         .type(type)
+                        .barcode(barcode)
                         .price(Double.parseDouble(price))
                         .build()
         );

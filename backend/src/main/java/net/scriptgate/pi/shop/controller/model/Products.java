@@ -61,11 +61,7 @@ public class Products {
     }
 
     public static Product create(Product product) {
-
-        System.out.println("Name: "+product.getName()+", Image: "+product.getImage().length()+ ", Type: " + product.getType()+ ", Price: "+product.getPrice());
-
         product.setId(nextId());
-        product.setBarcode(nextBarcode());
         products.add(product);
         return product;
     }

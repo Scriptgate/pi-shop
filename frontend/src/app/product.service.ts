@@ -17,11 +17,12 @@ export class ProductService {
   getProductById(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.url}/${id}`);
   }
-  addProduct(name: string, image: File, type: string, price: number) {
+  addProduct(name: string, image: File, type: string, barcode: string, price: number) {
     const productData = new FormData();
     productData.append('name', name);
     productData.append('image', image, image.name);
     productData.append('type', type);
+    productData.append('barcode', barcode);
     productData.append('price', `${price}`);
 
     this.http.post<Product>(`${this.url}/create`, productData).subscribe((product: Product) => {

@@ -24,6 +24,8 @@ import { map } from 'rxjs/operators'
         </div>
         <label for="type">Type</label>
         <input id="type" type="text" formControlName="type" />
+        <label for="barcode">Barcode</label>
+        <input id="barcode" type="text" formControlName="barcode" />
         <label for="price">Price</label>
         <input id="price" type="number" formControlName="price" />
         <button type="submit" class="primary" (click)="addProduct()">Add</button>
@@ -77,6 +79,7 @@ export class ManageComponent {
   applyForm = new FormGroup({
     name: new FormControl(''),
     type: new FormControl(''),
+    barcode: new FormControl(''),
     price: new FormControl(0),
   });
 
@@ -93,6 +96,7 @@ export class ManageComponent {
       this.applyForm.value.name ?? '',
       this.file,
       this.applyForm.value.type ?? '',
+      this.applyForm.value.barcode ?? '',
       this.applyForm.value.price ?? 0,
     );
   }
