@@ -1,0 +1,27 @@
+
+.products table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products tr {
+    border-bottom: 1px solid gray;
+}
+
+.products td {
+    padding: 10px;
+}
+
+.products .text {
+  text-align: left;
+}
+
+.products .number, .products .actions {
+  text-align: right;
+}
+
+.products img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}

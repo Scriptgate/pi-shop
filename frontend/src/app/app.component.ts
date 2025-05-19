@@ -11,6 +11,10 @@ import {RouterLink, RouterOutlet} from '@angular/router';
       </header>
       </a>
       <section class="menu">
+        <a [routerLink]="['/checkout']">
+          <h3>Checkout</h3>
+        </a>
+        |
         <a [routerLink]="['/manage']">
           <h3>Manage</h3>
         </a>
