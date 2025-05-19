@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class ProductService {
 
   private http = inject(HttpClient);
-  url = 'http://localhost:8080/backend/products';
+  url = '/backend/products';
 
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);
