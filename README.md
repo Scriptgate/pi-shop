@@ -32,4 +32,22 @@ Users with an admin role (parents) should be able to manage adding or removing i
 Adding new items would mean creating a physical barcode that can be linked to an item in the **pi-shop**.
 
 
+# Resources
 
+### Uploading an image
+https://www.javainuse.com/fullstack/imageupload
+
+### Angular Observable
+https://www.angularjswiki.com/httpclient/observable/
+
+### Using HttpClient
+https://angular.dev/guide/http/making-requests
+
+### Websockets
+- https://www.stackextend.com/angular/websocket-with-spring-boot-and-angular/
+  - `npm install --save sockjs-client stompjs`
+- https://stackoverflow.com/questions/43104114/cannot-find-name-require-after-upgrading-to-angular4
+  - `npm install --save-dev @types/node`
+- https://stackoverflow.com/questions/54275069/module-not-found-error-cant-resolve-net-in-node-modules-stompjs-lib
+  - `npm install net -S`
+- https://stackoverflow.com/questions/74579858/uncaught-referenceerror-global-is-not-defined-in-angular
