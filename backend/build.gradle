@@ -30,6 +30,7 @@ tasks.named('resolveMainClassName') {
 }
 tasks.named('bootRun') {
     dependsOn bootRepackage
+    standardInput = System.in
 }
 
 

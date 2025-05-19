@@ -74,4 +74,7 @@ public class Products {
         return products.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
     }
 
+    public static Product byBarcode(String barcode) {
+        return products.stream().filter(p -> p.getBarcode().equals(barcode)).findFirst().orElse(null);
+    }
 }
