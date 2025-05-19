@@ -54,7 +54,6 @@ import { map } from 'rxjs/operators'
                 <img
                   [src]="product.image"
                   alt="Image of {{ product.name }}"
-                  crossorigin
                 />
               </td>
               <td class="text">{{product.name}}</td>
