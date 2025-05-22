@@ -35,7 +35,7 @@ tasks.named('bootRun') {
 tasks.register('bootDist', Copy) {
     group = 'application'
     from bootJar
-    into rootProject.layout.projectDirectory.dir('dist')
+    into rootProject.layout.buildDirectory.dir('dist')
     rename { 'pi-shop.jar' }
 }
 
