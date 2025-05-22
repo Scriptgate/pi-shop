@@ -32,5 +32,10 @@ tasks.named('bootRun') {
     dependsOn bootRepackage
     standardInput = System.in
 }
-
+tasks.register('bootDist', Copy) {
+    group = 'application'
+    from bootJar
+    into rootProject.layout.projectDirectory.dir('dist')
+    rename { 'pi-shop.jar' }
+}
 
