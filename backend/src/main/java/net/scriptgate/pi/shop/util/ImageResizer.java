@@ -23,7 +23,7 @@ public class ImageResizer {
     }
 
     private static BufferedImage resizeImage(BufferedImage original, int targetWidth, int targetHeight) {
-        Image resized = original.getScaledInstance(targetWidth, targetHeight, Image.SCALE_DEFAULT);
+        Image resized = original.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
         BufferedImage outputImage = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_RGB);
         outputImage.getGraphics().drawImage(resized, 0, 0, null);
         return outputImage;
