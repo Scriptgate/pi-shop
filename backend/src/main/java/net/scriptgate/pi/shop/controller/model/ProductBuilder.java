@@ -1,8 +1,11 @@
 package net.scriptgate.pi.shop.controller.model;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import net.scriptgate.pi.shop.util.ImageResizer;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.Base64;
 
 public class ProductBuilder {
@@ -46,7 +49,7 @@ public class ProductBuilder {
     }
 
     public ProductBuilder image(byte[] data) {
-        this.image = "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(data);
+        this.image = "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(ImageResizer.resize(data));
         return this;
     }
 
