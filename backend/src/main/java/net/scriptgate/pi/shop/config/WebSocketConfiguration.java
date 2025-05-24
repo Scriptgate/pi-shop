@@ -1,4 +1,4 @@
-package net.scriptgate.pi.shop;
+package net.scriptgate.pi.shop.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

@@ -1,4 +1,4 @@
-package net.scriptgate.pi.shop;
+package net.scriptgate.pi.shop.component;
 
 import net.scriptgate.pi.shop.controller.model.Product;
 import net.scriptgate.pi.shop.controller.model.Products;
