@@ -2,6 +2,7 @@ package net.scriptgate.pi.shop;
 
 import net.scriptgate.pi.shop.controller.model.Product;
 import net.scriptgate.pi.shop.controller.model.Products;
+import net.scriptgate.pi.shop.service.CheckoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -17,7 +18,8 @@ public class BarcodeScanner implements CommandLineRunner {
     @Autowired
     private SimpMessagingTemplate template;
 
-    private final List<Product> shoppingCart = new ArrayList<>();
+    @Autowired
+    private CheckoutService checkoutService;
 
     @Override
     public void run(String... args) {
@@ -28,8 +30,8 @@ public class BarcodeScanner implements CommandLineRunner {
             String barcode = scanner.nextLine();
             Product product = Products.byBarcode(barcode);
             if (product != null) {
-                shoppingCart.add(product);
-                template.convertAndSend("/checkout/products", shoppingCart);
+                checkoutService.add(product);
+                template.convertAndSend("/checkout/products", checkoutService.getProducts());
                 System.out.println("Product added: " + product.getName());
             } else {
                 System.out.println("Product with barcode '" + barcode + "' not found");
