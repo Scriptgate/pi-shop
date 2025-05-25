@@ -4,7 +4,7 @@
   border-collapse: collapse;
 }
 
-.products tr {
+tr.product {
     border-bottom: 1px solid gray;
 }
 
@@ -20,8 +20,16 @@
   text-align: right;
 }
 
-.products img {
+tr.product img {
   height: 50px;
   width: 50px;
   object-fit: cover;
+}
+
+tr.empty img {
+  opacity: 0.5;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }

@@ -11,8 +11,8 @@ import {WebSocketService} from '../services/websocket.service';
     <section class="products">
       <table>
         <tbody>
-          @if (checkoutProducts$ | async; as checkoutProducts) {
-            <tr *ngFor="let product of checkoutProducts">
+          @for(product of checkoutProducts$ | async; track product.id) {
+            <tr class="product">
               <td>
                 <img
                   [src]="product.image"
@@ -24,6 +24,8 @@ import {WebSocketService} from '../services/websocket.service';
               <td class="number">{{product.price}}</td>
               <td class="actions">remove</td>
             </tr>
+          } @empty {
+            <tr class="empty"><td><img src="assets/scan_items.png"/></td></tr>
           }
         </tbody>
       </table>
