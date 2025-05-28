@@ -13,16 +13,17 @@ import {WebSocketService} from '../services/websocket.service';
         <tbody>
           @for(product of checkoutProducts$ | async; track product.id) {
             <tr class="product">
-              <td>
+              <td class="image">
                 <img
                   [src]="product.image"
                   alt="Image of {{ product.name }}"
                 />
               </td>
               <td class="text">{{product.name}}</td>
-              <td class="number">{{product.barcode}}</td>
-              <td class="number">{{product.price}}</td>
-              <td class="actions">remove</td>
+              <td class="number">€{{product.price}}</td>
+              <td class="actions">
+                <button (click)="deleteProduct(product.id)"><img src="assets/trash_can.svg"/></button>
+              </td>
             </tr>
           } @empty {
             <tr class="empty"><td><img src="assets/scan_items.png"/></td></tr>
@@ -47,6 +48,11 @@ export class CheckoutComponent {
         this.checkoutProducts$ = of(JSON.parse(products.body));
       })
     });
+  }
+
+  deleteProduct(id: number) {
+    console.log(`Component - Deleting ${id}`);
+    this.checkoutService.deleteProduct(id);
   }
 
 }
