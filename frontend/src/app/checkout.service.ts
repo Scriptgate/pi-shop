@@ -14,4 +14,11 @@ export class CheckoutService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);
   }
+
+  deleteProduct(id: number): void {
+    this.http.delete(`${this.url}/${id}`).subscribe(() =>
+      console.log(`Deleted product with id: ${id}`)
+    );
+  }
+
 }

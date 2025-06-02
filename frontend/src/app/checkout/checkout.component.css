@@ -2,10 +2,15 @@
 .products table {
   width: 100%;
   border-collapse: collapse;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 50px;
+  color: white;
 }
 
 tr.product {
-    border-bottom: 1px solid gray;
+    background-color:  var(--primary-color);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border-bottom: 3px solid #FFFFFF;
 }
 
 .products td {
@@ -20,10 +25,40 @@ tr.product {
   text-align: right;
 }
 
-tr.product img {
+.products .image {
+    width: 100px;
+	text-align:center;
+}
+
+.products .actions {
+	width: 100px;
+}
+
+.image img {
+
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  object-position: 0px -35px;
+
+}
+
+.actions img {
   height: 50px;
   width: 50px;
-  object-fit: cover;
+	padding: 10px;
+}
+
+.actions button {
+	border-radius: 50%;
+	border: none;
+	box-shadow:
+		0 1px 2px #FFFFFF,
+		0 -1px 1px  var(--shadow-color),
+		inset 0 -1px 1px rgba(0,0,0,0.5),
+		inset 0 1px 1px rgba(255,255,255,0.8);
+
 }
 
 tr.empty img {
@@ -32,4 +67,8 @@ tr.empty img {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+.actions button {
+  padding: 5px;
 }
