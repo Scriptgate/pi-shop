@@ -3,6 +3,7 @@ package net.scriptgate.pi.shop.controller;
 import net.scriptgate.pi.shop.controller.model.Product;
 import net.scriptgate.pi.shop.controller.model.ProductBuilder;
 import net.scriptgate.pi.shop.controller.model.Products;
+import net.scriptgate.pi.shop.util.ImageResizer;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,7 +34,7 @@ public class ProductController {
     ) throws IOException {
         return Products.create(
                 ProductBuilder.product(0, name)
-                        .image(image.getBytes())
+                        .image(ImageResizer.resize(image.getBytes()))
                         .type(type)
                         .barcode(barcode)
                         .price(Double.parseDouble(price))

@@ -49,7 +49,7 @@ public class ProductBuilder {
     }
 
     public ProductBuilder image(byte[] data) {
-        this.image = "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(ImageResizer.resize(data));
+        this.image = "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(data);
         return this;
     }
 
