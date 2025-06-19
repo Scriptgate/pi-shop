@@ -3,6 +3,8 @@ package net.scriptgate.pi.shop.component;
 import net.scriptgate.pi.shop.models.Product;
 import net.scriptgate.pi.shop.service.CheckoutService;
 import net.scriptgate.pi.shop.services.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,12 +15,14 @@ import java.util.Scanner;
 @Component
 public class BarcodeScanner implements CommandLineRunner {
 
+    private static final Logger LOG = LoggerFactory.getLogger(BarcodeScanner.class);
+
     @Autowired private CheckoutService checkoutService;
     @Autowired private ProductService productService;
 
     @Override
     public void run(String... args) {
-        System.out.println("> Barcode scanner online");
+        LOG.info("Barcode scanner online");
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()) {
@@ -27,9 +31,9 @@ public class BarcodeScanner implements CommandLineRunner {
 
             if (product.isPresent()) {
                 checkoutService.add(product.get());
-                System.out.println("Product added: " + product.get().getName());
+                LOG.info("Product added: {}", product.get().getName());
             } else {
-                System.out.println("Product with barcode '" + barcode + "' not found");
+                LOG.warn("Product with barcode '{}' not found", barcode);
             }
         }
 
