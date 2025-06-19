@@ -1,6 +1,8 @@
 package net.scriptgate.pi.shop.service;
 
-import net.scriptgate.pi.shop.controller.model.Product;
+import net.scriptgate.pi.shop.controller.model.ProductDTOMapper;
+import net.scriptgate.pi.shop.controller.model.ProductDTO;
+import net.scriptgate.pi.shop.models.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,8 @@ public class CheckoutService {
         template.convertAndSend("/checkout/products", getProducts());
     }
 
-    public List<Product> getProducts() {
-        return shoppingCart;
+    public List<ProductDTO> getProducts() {
+        return shoppingCart.stream().map(ProductDTOMapper::map).toList();
     }
 
     public void remove(int id) {

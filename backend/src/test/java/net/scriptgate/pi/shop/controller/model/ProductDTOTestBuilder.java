@@ -1,33 +1,28 @@
 package net.scriptgate.pi.shop.controller.model;
 
-import net.scriptgate.pi.shop.util.ImageResizer;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Base64;
 
-public class ProductBuilder {
+public class ProductDTOTestBuilder {
 
-    private final int id;
+    private final long id;
     private final String name;
     private String image;
     private String type;
     private String barcode;
     private double price;
 
-    private ProductBuilder(int id, String name) {
+    private ProductDTOTestBuilder(long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public static ProductBuilder product(int id, String name) {
-        return new ProductBuilder(id, name);
+    public static ProductDTOTestBuilder product(long id, String name) {
+        return new ProductDTOTestBuilder(id, name);
     }
 
-    public Product build() {
-        Product product = new Product();
+    public ProductDTO build() {
+        ProductDTO product = new ProductDTO();
         product.setId(id);
         product.setName(name);
         product.setImage(image);
@@ -37,7 +32,7 @@ public class ProductBuilder {
         return product;
     }
 
-    public ProductBuilder image(String path) {
+    public ProductDTOTestBuilder image(String path) {
         try(InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(path)) {
             if(input == null) {
                 throw new FileNotFoundException(path);
@@ -48,22 +43,22 @@ public class ProductBuilder {
         }
     }
 
-    public ProductBuilder image(byte[] data) {
+    public ProductDTOTestBuilder image(byte[] data) {
         this.image = "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(data);
         return this;
     }
 
-    public ProductBuilder type(String type) {
+    public ProductDTOTestBuilder type(String type) {
         this.type = type;
         return this;
     }
 
-    public ProductBuilder barcode(String barcode) {
+    public ProductDTOTestBuilder barcode(String barcode) {
         this.barcode = barcode;
         return this;
     }
 
-    public ProductBuilder price(double price) {
+    public ProductDTOTestBuilder price(double price) {
         this.price = price;
         return this;
     }

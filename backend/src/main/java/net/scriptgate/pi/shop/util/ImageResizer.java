@@ -6,10 +6,15 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Base64;
 
 public class ImageResizer {
 
     private static final int MAXIMUM_SIZE = 150_000;
+
+    public static String resized(byte[] data) {
+        return "data:image/jpeg;base64,"+ Base64.getEncoder().encodeToString(resize(data));
+    }
 
     public static byte[] resize(byte[] data) {
         try (ByteArrayInputStream inputStream = new ByteArrayInputStream(data)) {

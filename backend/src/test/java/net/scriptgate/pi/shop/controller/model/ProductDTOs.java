@@ -1,18 +1,17 @@
 package net.scriptgate.pi.shop.controller.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static net.scriptgate.pi.shop.controller.model.ProductBuilder.product;
+import static net.scriptgate.pi.shop.controller.model.ProductDTOTestBuilder.product;
 
-public class Products {
+public class ProductDTOs {
 
     private static int idSequence = 0;
     private static int barcodeSequence = 1000;
-    private static final List<Product> products;
+    private static final List<ProductDTO> products;
 
     static {
-        products = new ArrayList<>(List.of(
+        products = List.of(
                 product(nextId(), "Frietjes")
                         .image("assets/images/fries.png")
                         .type("FOOD")
@@ -49,7 +48,7 @@ public class Products {
                         .barcode(nextBarcode())
                         .price(25.00)
                         .build()
-        ));
+        );
     }
 
     public static int nextId() {
@@ -60,21 +59,7 @@ public class Products {
         return String.valueOf(++barcodeSequence);
     }
 
-    public static Product create(Product product) {
-        product.setId(nextId());
-        products.add(product);
-        return product;
-    }
-
-    public static List<Product> all() {
+    public static List<ProductDTO> all() {
         return products;
-    }
-
-    public static Product byId(int id) {
-        return products.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
-    }
-
-    public static Product byBarcode(String barcode) {
-        return products.stream().filter(p -> p.getBarcode().equals(barcode)).findFirst().orElse(null);
     }
 }

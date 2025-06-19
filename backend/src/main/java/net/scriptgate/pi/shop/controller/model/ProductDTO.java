@@ -1,22 +1,22 @@
 package net.scriptgate.pi.shop.controller.model;
 
-public class Product {
+public class ProductDTO {
 
-    private int id;
+    private long id;
     private String name;
     private String image;
     private String type;
     private String barcode;
     private double price;
 
-    public Product() {
+    public ProductDTO() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

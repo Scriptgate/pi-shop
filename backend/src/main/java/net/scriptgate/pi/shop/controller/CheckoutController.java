@@ -1,6 +1,6 @@
 package net.scriptgate.pi.shop.controller;
 
-import net.scriptgate.pi.shop.controller.model.Product;
+import net.scriptgate.pi.shop.controller.model.ProductDTO;
 import net.scriptgate.pi.shop.service.CheckoutService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +15,10 @@ public class CheckoutController {
 
     private static final Logger LOG = LoggerFactory.getLogger(CheckoutController.class);
 
-    @Autowired
-    private CheckoutService checkoutService;
+    @Autowired private CheckoutService checkoutService;
 
     @GetMapping("/checkout")
-    public List<Product> getProducts() {
+    public List<ProductDTO> getProducts() {
         return checkoutService.getProducts();
     }
 
