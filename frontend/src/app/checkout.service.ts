@@ -21,4 +21,11 @@ export class CheckoutService {
     );
   }
 
+  pay(method: string): void {
+    const paymentData = new FormData();
+    paymentData.append('method', method);
+
+    this.http.post<Product>(`${this.url}/pay`, paymentData).subscribe();
+  }
+
 }

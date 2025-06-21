@@ -23,7 +23,7 @@ public class CheckoutService {
     private final List<Product> shoppingCart = new ArrayList<>();
 
     public void add(Product product) {
-        shoppingCart.add(product);
+        shoppingCart.add(0, product);
         template.convertAndSend("/checkout/products", getProducts());
     }
 
@@ -39,5 +39,10 @@ public class CheckoutService {
         } else {
             LOG.warn("Could not delete product: id '{}' not found", id);
         }
+    }
+
+    public void pay(String method) {
+        shoppingCart.clear();
+        template.convertAndSend("/checkout/products", getProducts());
     }
 }

@@ -27,4 +27,11 @@ public class CheckoutController {
         LOG.info("Removing product with id '{}'", id);
         checkoutService.remove(id);
     }
+
+    @PostMapping("/checkout/pay")
+    public void pay(@RequestParam("method") String method) {
+        LOG.info("Payed with {}", method);
+        checkoutService.pay(method);
+    }
+
 }

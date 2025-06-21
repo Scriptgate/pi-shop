@@ -1,3 +1,7 @@
+.product-apply {
+  padding: 10px;
+}
+
 .product-apply .section-heading {
   font-size: 18pt;
   margin-bottom: 15px;
@@ -20,6 +24,10 @@
   border-right: none;
   border-left: none;
   border-bottom: solid .3px;
+}
+
+.filter {
+  padding: 10px;
 }
 
 .filter input[type="text"] {

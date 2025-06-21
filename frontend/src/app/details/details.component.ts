@@ -24,7 +24,7 @@ import { Observable } from 'rxjs';
           <h2 class="section-heading">About this product</h2>
           <ul>
             <li>Type: {{ product.type }}</li>
-            <li>Price: €{{ product.price }}</li>
+            <li>Price: &euro;&nbsp;{{ product.price }}</li>
           </ul>
         </section>
       }
