@@ -8,22 +8,7 @@ import { map } from 'rxjs/operators'
 @Component({
   selector: 'app-home',
   imports: [CommonModule, ProductComponent, AsyncPipe],
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by name" #filter />
-        <button class="primary" type="button" (click)="filterProducts(filter.value)">Search</button>
-      </form>
-    </section>
-    <section class="products">
-      @if (filteredProducts$ | async; as filteredProducts) {
-        <app-product
-          *ngFor="let product of filteredProducts"
-          [product]="product"
-        ></app-product>
-      }
-    </section>
-  `,
+  templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {

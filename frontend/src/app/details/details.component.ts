@@ -8,28 +8,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-details',
   imports: [CommonModule, ReactiveFormsModule, AsyncPipe],
-  template: `
-    <article>
-      @if (product$ | async; as product) {
-        <img
-          class="product-image"
-          [src]="product.image"
-          alt="Image of {{ product.name }}"
-        />
-        <section class="product-description">
-          <h2 class="product-heading">{{ product.name }}</h2>
-          <p class="product-barcode">{{ product.barcode }}</p>
-        </section>
-        <section class="product-features">
-          <h2 class="section-heading">About this product</h2>
-          <ul>
-            <li>Type: {{ product.type }}</li>
-            <li>Price: &euro;&nbsp;{{ product.price }}</li>
-          </ul>
-        </section>
-      }
-    </article>
-  `,
+  templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent {
