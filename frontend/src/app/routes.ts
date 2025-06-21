@@ -6,8 +6,8 @@ import {CheckoutComponent} from './checkout/checkout.component';
 const routeConfig: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    title: 'Home | PiShop',
+    component: CheckoutComponent,
+    title: 'Checkout | PiShop',
   },
   {
     path: 'details/:id',
