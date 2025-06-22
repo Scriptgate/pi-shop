@@ -19,7 +19,11 @@
             } @empty {
             <tr class="empty">
                 <td>
+                    <span class="spacer"></span>
                     <img src="{{ paymentImage }}" [ngClass]="{show: isPaying, hide: !isPaying}"/>
+                </td>
+                <td>
+                    <span class="spacer"></span>
                     <img src="assets/scan_items.png" [ngClass]="{show: !isPaying, hide: isPaying}"/>
                 </td>
             </tr>

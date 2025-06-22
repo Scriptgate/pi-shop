@@ -29,7 +29,7 @@ tr.product {
     border-bottom: 3px solid #FFFFFF;
 }
 
-.products td {
+.product td {
     padding: 10px;
 }
 
@@ -77,11 +77,28 @@ tr.product {
 
 }
 
-tr.empty img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+.empty {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: auto;
+}
+.empty td {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+}
+
+.empty .spacer {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.empty img {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .show {
