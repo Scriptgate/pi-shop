@@ -11,6 +11,7 @@ import {map} from "rxjs/operators";
     imports: [CommonModule],
     templateUrl: './checkout.component.html',
     styleUrls: ['./checkout.component.css'],
+    standalone: true
 })
 export class CheckoutComponent {
     public checkoutProducts$!: Observable<Product[]>;

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [RouterLink, RouterOutlet],
+  imports: [RouterOutlet],
   template: `
     <main>
       <section class="content">
@@ -11,6 +11,7 @@ import {RouterOutlet} from '@angular/router';
     </main>
   `,
   styleUrls: ['./app.component.css'],
+  standalone: true
 })
 export class AppComponent {
   title = 'homes';
