@@ -1,8 +1,13 @@
+@font-face {
+    font-family: "Comic Sans MS";
+    src: url("/assets/fonts/comicbd.ttf") format("truetype"),
+    url("/assets/fonts/comicbd.svg") format("svg");
+}
 
 .products table {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'Comic Sans MS';
+  font-family: 'Comic Sans MS', serif;
   font-size: 50px;
   font-weight: bold;
   color: white;
