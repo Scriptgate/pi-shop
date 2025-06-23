@@ -2,7 +2,7 @@ package net.scriptgate.pi.shop.service;
 
 import net.scriptgate.pi.shop.controller.model.ProductDTOMapper;
 import net.scriptgate.pi.shop.controller.model.ProductDTO;
-import net.scriptgate.pi.shop.models.Product;
+import net.scriptgate.pi.shop.domain.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

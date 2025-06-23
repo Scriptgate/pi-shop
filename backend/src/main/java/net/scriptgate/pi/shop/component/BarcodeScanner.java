@@ -1,8 +1,8 @@
 package net.scriptgate.pi.shop.component;
 
-import net.scriptgate.pi.shop.models.Product;
+import net.scriptgate.pi.shop.domain.Product;
+import net.scriptgate.pi.shop.ports.ProductRepository;
 import net.scriptgate.pi.shop.service.CheckoutService;
-import net.scriptgate.pi.shop.services.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class BarcodeScanner implements CommandLineRunner {
     private static final Logger LOG = LoggerFactory.getLogger(BarcodeScanner.class);
 
     @Autowired private CheckoutService checkoutService;
-    @Autowired private ProductService productService;
+    @Autowired private ProductRepository productRepository;
 
     @Override
     public void run(String... args) {
@@ -27,7 +27,7 @@ public class BarcodeScanner implements CommandLineRunner {
 
         while (scanner.hasNext()) {
             String barcode = scanner.nextLine();
-            Optional<Product> product = productService.find(barcode);
+            Optional<? extends Product> product = productRepository.find(barcode);
 
             if (product.isPresent()) {
                 checkoutService.add(product.get());

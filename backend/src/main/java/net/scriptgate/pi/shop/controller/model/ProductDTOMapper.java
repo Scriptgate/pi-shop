@@ -1,7 +1,6 @@
 package net.scriptgate.pi.shop.controller.model;
 
-import net.scriptgate.pi.shop.controller.model.ProductDTO;
-import net.scriptgate.pi.shop.models.Product;
+import net.scriptgate.pi.shop.domain.Product;
 
 public class ProductDTOMapper {
 
