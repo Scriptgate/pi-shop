@@ -23,7 +23,7 @@ tasks.register('buildClientToSpring', Copy) {
     group = 'build'
     dependsOn buildClient
     from buildClient.map { it.outputs.files }
-    into project(':backend').layout.buildDirectory.dir('resources/main/static')
+    into project(':startup').layout.buildDirectory.dir('resources/main/static')
 }
 
 tasks.register('ngServe', NpmTask) {

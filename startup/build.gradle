@@ -1,0 +1,42 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform(SpringBootPlugin.BOM_COORDINATES)
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation project(':core')
+    implementation project(':database')
+    implementation project(':backend')
+}
+
+def buildClientToSpring = ':frontend:buildClientToSpring'
+
+def bootRepackage = tasks.register('bootRepackage') {
+    group = 'build'
+    dependsOn buildClientToSpring, 'bootJar'
+}
+
+tasks.named('bootJar') {
+    mustRunAfter buildClientToSpring
+}
+tasks.named('resolveMainClassName') {
+    mustRunAfter buildClientToSpring
+}
+tasks.named('bootRun') {
+    dependsOn bootRepackage
+    standardInput = System.in
+}
+tasks.register('bootDist', Copy) {
+    group = 'application'
+    from bootJar
+    into rootProject.layout.buildDirectory.dir('dist')
+    rename { 'pi-shop.jar' }
+}

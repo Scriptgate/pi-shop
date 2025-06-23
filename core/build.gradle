@@ -1,20 +1,12 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.0'
 }
-
-import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation platform(SpringBootPlugin.BOM_COORDINATES)
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    implementation project(':database')
-
     testImplementation platform('org.junit:junit-bom:5.12.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.assertj:assertj-core:3.27.3'
