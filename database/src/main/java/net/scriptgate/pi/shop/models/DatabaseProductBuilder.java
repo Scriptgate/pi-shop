@@ -1,6 +1,6 @@
 package net.scriptgate.pi.shop.models;
 
-public class ProductBuilder {
+public class DatabaseProductBuilder {
 
     private final String name;
     private String image;
@@ -8,16 +8,16 @@ public class ProductBuilder {
     private String barcode;
     private double price;
 
-    private ProductBuilder(String name) {
+    private DatabaseProductBuilder(String name) {
         this.name = name;
     }
 
-    public static ProductBuilder product(String name) {
-        return new ProductBuilder(name);
+    public static DatabaseProductBuilder product(String name) {
+        return new DatabaseProductBuilder(name);
     }
 
-    public Product build() {
-        Product product = new Product();
+    public DatabaseProduct build() {
+        DatabaseProduct product = new DatabaseProduct();
         product.setName(name);
         product.setImage(image);
         product.setType(type);
@@ -26,22 +26,22 @@ public class ProductBuilder {
         return product;
     }
 
-    public ProductBuilder image(String image) {
+    public DatabaseProductBuilder image(String image) {
         this.image = image;
         return this;
     }
 
-    public ProductBuilder type(String type) {
+    public DatabaseProductBuilder type(String type) {
         this.type = type;
         return this;
     }
 
-    public ProductBuilder barcode(String barcode) {
+    public DatabaseProductBuilder barcode(String barcode) {
         this.barcode = barcode;
         return this;
     }
 
-    public ProductBuilder price(double price) {
+    public DatabaseProductBuilder price(double price) {
         this.price = price;
         return this;
     }

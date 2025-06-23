@@ -10,8 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation platform(SpringBootPlugin.BOM_COORDINATES)
     api 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    implementation platform(SpringBootPlugin.BOM_COORDINATES)
+    implementation project(':core')
 
     runtimeOnly 'com.h2database:h2'
 

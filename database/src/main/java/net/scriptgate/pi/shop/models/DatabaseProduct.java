@@ -1,9 +1,11 @@
 package net.scriptgate.pi.shop.models;
 
 import jakarta.persistence.*;
+import net.scriptgate.pi.shop.domain.Product;
 
 @Entity
-public class Product {
+@Table(name = "product")
+public class DatabaseProduct implements Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
