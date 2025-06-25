@@ -14,7 +14,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation project(':core')
     implementation project(':database')
-    implementation project(':backend')
+    implementation project(':backend-for-frontend')
 }
 
 def buildClientToSpring = ':frontend:buildClientToSpring'

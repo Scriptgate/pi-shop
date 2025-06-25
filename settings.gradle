@@ -1,5 +1,5 @@
 include ':frontend'
-include ':backend'
+include ':backend-for-frontend'
 include ':database'
 include ':core'
 include ':startup'
