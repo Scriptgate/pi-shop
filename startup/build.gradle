@@ -15,6 +15,7 @@ dependencies {
     implementation project(':core')
     implementation project(':database')
     implementation project(':backend-for-frontend')
+    implementation project(':native')
 }
 
 def buildClientToSpring = ':frontend:buildClientToSpring'

@@ -1,0 +1,19 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.0' apply false
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform(SpringBootPlugin.BOM_COORDINATES)
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    implementation 'net.scriptgate.engine:engine-api:1.0.0'
+    implementation 'net.scriptgate.engine:engine-core:1.0.0'
+    implementation 'net.scriptgate.engine:engine-lwjgl:1.0.0'
+}
